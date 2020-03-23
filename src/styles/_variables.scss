@@ -1,0 +1,33 @@
+//COLORS
+$font-main: hsl(0,0,96);
+$font-secondary: hsl(0,0,80);
+$font-heading: hsl(0,0,10);
+
+$hue-primary: 180;
+$hue-secondary: 160;
+
+
+$primary: hsl($hue-primary, 20, 50);
+$secondary: hsl($hue-secondary, 20, 50);
+
+$primary-border: hsl($hue-primary, 60, 40);
+$secondary-border: hsl($hue-secondary, 60, 30);
+
+$primary-highlight: hsl($hue-primary, 40, 65);
+$secondary-highlight: hsl($hue-secondary, 30, 55);
+
+$primary-opacity: hsla($hue-primary, 60, 30,.5);
+$secondary-opacity: hsla($hue-secondary, 20, 50,.5);
+
+$bar-top: hsl($hue-secondary,10,80);
+$bar-bottom: hsl($hue-primary,20,80);
+
+//FONTS
+$font-family: 'Roboto', sans-serif;
+
+//SIZES
+$bars: 50px; // top and bottom bar height
+$item-height: 50px; // list item height
+
+//ANIMATIONS
+$list-animation-time: 300ms;

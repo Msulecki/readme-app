@@ -1,0 +1,41 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+.topbar {
+    @include flex-center-row;
+    position: fixed;
+    top: 0;
+    height: $bars;
+    width: 100%;
+    background-color: $bar-top;
+    box-shadow: 0 -10px 5px 10px hsla(0,0,0,.5);
+    z-index: 9;
+
+    &__add,
+    &__settings{
+        height: 100%;
+        width: $bars;
+        @include flex-center-col;
+    }
+
+    &__add {
+
+    }
+
+    &__logo{
+        flex-grow: 1;
+        @include flex-center-row;
+
+        h1 {
+            font-size: 2em;
+            font-family: $font-family;
+            color: $font-heading;
+            font-weight: 100;
+        }
+    }
+
+    img {
+         height: calc(#{$bars} / 2);
+         width: auto;
+    }
+}

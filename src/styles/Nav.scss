@@ -1,0 +1,44 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    height: $bars;
+    width: 100%;
+    background-color: $bar-bottom;
+    box-shadow: 0 10px 5px 10px hsla(0,0,0,.5);
+
+    &>ul {
+        @include flex-center-row;
+        justify-content: space-around;
+        list-style-type: none;
+        height: 100%;
+
+        &>li {
+            @include flex-center-col;
+            width: $bars;
+            height: 100%;
+            color: $font-heading;
+            font-size: .6em;
+
+            &>a {
+                @include flex-center-col;            
+                height: 100%;
+                width: 100%;
+                border-bottom: 2px solid transparent;
+                
+                &.active {
+                    border-bottom: 2px solid $primary-border;
+                }
+                  
+            }
+
+            img {
+                height: calc(#{$bars} / 2);
+                margin: 2px 0;
+                width: auto;
+            }
+        }
+    }
+}

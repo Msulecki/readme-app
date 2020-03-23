@@ -1,0 +1,107 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+.login {
+    @include flex-center-col;
+    justify-content: flex-start;
+    padding: 5px;
+    height: 100%;  
+    
+    h1,
+    button {
+        font-weight: 100;
+        font-family: $font-family;
+        color: $font-main;
+    }
+
+    img {
+        margin: 10vh 0 5vh 0;
+    }
+
+    h1 {
+        font-size: 4em;
+        margin-bottom: 5vh;
+    }
+
+    header {
+        @include flex-center-col;
+    }
+
+    &__form {
+        width: 60vw;
+        max-width: 300px;
+
+        &-wrapper{
+            @include flex-center-col;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px 0;
+            color: $font-main;
+            font-family: $font-family;
+
+            &::placeholder {
+                color: $font-secondary;
+                font-weight: 100;
+                font-style: inherit;
+                font-family: inherit;
+            }
+
+            &[type="text"] {
+                border: 1px solid hsla(0,0,0,.4);
+                background-color: hsla(0,0,0,.2);
+                &:active,
+                &:focus {
+                    outline:0;
+                    background-color: hsla(0,0,30,.2);
+                }
+            }
+
+            &[type="password"]{
+                border: 1px solid hsla(0,0,0,.4);
+                background-color: hsla(0,0,0,.2);
+                &:active,
+                &:focus {
+                    outline:0;
+                    background-color: hsla(0,0,30,.2);
+                }
+            }
+
+            &[type="submit"]{
+                background-color: $primary-opacity;
+                border: 1px solid $primary-border;
+                &:hover {
+                    background-color: $primary-highlight;
+                }
+            }
+        }
+    }
+
+    &__holder {
+        @include flex-center-row;
+        align-self: flex-start;
+        align-items: flex-start;
+        transition: 500ms;
+    }
+
+    &__group {
+        @include flex-center-col;
+        width: 100vw;
+    }
+
+}
+
+.slide {
+    transform: translateX(-100vw);
+    transition: 500ms;
+}
+.static {
+    transition: 0s;
+}
+
+@media screen and (orientation: portrait) {
+   
+}

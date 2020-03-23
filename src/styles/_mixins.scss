@@ -1,0 +1,29 @@
+@mixin flex-center-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-center-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin topbar-cards {
+    overflow-y: auto;
+    position: absolute;
+    height: calc(100vh - #{$bars});
+    background-color: $bar-top;
+    box-shadow: 0 10px 5px -10px hsla(0,0,0,.5) inset;
+    top:$bars;
+    width: 100%;
+    transition: 300ms;
+    color: $font-heading;
+
+    &.slide-card {
+        transform: translateX(0vw);
+    }
+}

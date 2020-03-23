@@ -1,0 +1,119 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+.main {
+    width: 100%;
+    padding: $bars 0;
+}
+
+.home,
+.reviews,
+.favourites,
+.wishlist {
+   opacity: 0;
+   animation: slidein-article 300ms forwards;
+}
+
+@keyframes slidein-article {
+    100% {
+        opacity: 1;
+    }
+}
+
+@import '_variables.scss';
+@import '_mixins.scss';
+
+.books {
+    &__list{
+        list-style-type: none;
+        padding: 5px;
+
+        &-item {
+            @include flex-center-row;
+            background-color: $primary-border;
+            height: $item-height;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px 0 hsla(0,0,0,.2);
+            transition: $list-animation-time;
+        }
+
+        &-img{
+            min-width: 30px;
+            height: 30px;
+            margin: 0 10px;
+        }
+        &-text {
+            flex-grow: 1;
+            span {
+                font-size: .8em;
+            }
+        }
+        &-delete {
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+            @include flex-center-row;
+            background-color: $primary-highlight;
+            background-image: url('../assets/icons/delete.svg');
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: $list-animation-time;
+        }
+        &-holder {
+            margin: 6px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px 0 hsla(0,0,0,.2);
+            height: $item-height;
+            transition: $list-animation-time;
+            overflow: hidden;
+
+            &.active {
+                height: calc(#{$item-height} * 2);
+                background-color: $primary-border;
+            }
+
+            &.active > .books__list-item{
+                border-radius: 10px 10px 0 0;
+                background-color: $primary-highlight;
+            
+            & > .books__list-delete{
+                background-color: $primary-border;
+            }
+        }
+        }
+
+        &-rating {
+            @include flex-center-row;
+            padding: 0 20px;
+            background-color: hsla(0,0,0,.2);
+            overflow: hidden;
+
+            & h4 {
+                flex-grow:1;
+                text-align: end;
+            }
+        }
+        &-star {
+            width: 35px;
+            height: $item-height;
+            padding: 0 5px;
+            background-image: url('../assets/icons/starEmpty.svg');
+            background-repeat: no-repeat;
+            background-size: 75%;
+            background-position: center;
+            font-size: .6em;
+            // &:hover,
+            // &:focus {
+            //     background-image: url('../assets/icons/starFull.svg');
+            //     &~*{
+            //         background-image: url('../assets/icons/starFull.svg');
+            //     }
+            // }
+            &.active{
+                background-image: url('../assets/icons/starFull.svg');
+            }
+        }
+    }
+}

@@ -1,0 +1,111 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+.add {
+    @include topbar-cards;
+    @include flex-center-col;
+    justify-content: flex-start;
+    transform: translateX(-100vw);
+    padding-bottom: calc(#{$bars} + 10px);
+}
+
+.book {
+    @include flex-center-col;
+    width: 100%;
+    flex-grow: 1;
+    justify-content: flex-start;
+    overflow-y: auto;
+
+    &__header,
+    &__list {
+        width: calc(100% - 20px);
+        margin: 10px 10px 0 10px;
+    }
+
+    &__header {
+        @include flex-center-row;
+        box-shadow: 0 5px 5px -5px hsla(0,0,0,.5);
+        background-color: hsla(0,0,100,.3);
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    &__img {
+        border-radius: 10px;
+        margin: 5px;
+        box-shadow: 0 5px 5px -5px hsla(0,0,0,.5);
+    }
+
+    // &__spacer {
+    //     flex-grow: 1;
+    // }
+
+    &__add {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: calc(#{$bars} + 10px);
+        margin: 10px 0 0 0;
+        @include flex-center-row;
+        padding: 5px 0;
+        border-top: 5px solid $secondary-opacity;
+        background-color: $bar-bottom;
+
+        & h3 {
+            color: $font-heading;
+            margin-left: 20px;
+        }
+
+        & button{
+            @include flex-center-col;
+            margin: 0 20px;
+            background-color: transparent;
+
+            & img {
+                width: 25px;
+                height: 25px;
+                filter: saturate(.6);
+                margin: 5px 0;
+            }
+        }
+    }
+
+    &__list {
+        list-style-type: none;
+        background-color: hsla(0,0,100,.3);
+        box-shadow: 0 5px 5px -5px hsla(0,0,0,.5);
+        border-radius: 10px;
+        padding: 5px 10px;
+
+        &-item {
+
+            &.title {
+                font-size: 2em;
+                text-align: center;
+                margin: 5px 0 3px 0;
+            }
+
+            &.author,
+            &.pubdate,
+            &.pagesno {
+
+                font-size: 1em;
+
+                & span {
+                    font-weight: bold;
+                }
+            }
+
+            &.desc {
+                font-style: italic;
+                font-size: 1.2em;
+                margin: 10px 0;
+                border: 1px solid $secondary-opacity;
+                border-left: 10px solid $secondary-opacity;
+                padding: 5px;
+                margin: 5px;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,17 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+.content {
+    @include flex-center-col;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    color: $font-main;
+    font-family: $font-family;
+    opacity: 0;
+}
+
+.slidein {
+    opacity: 1;
+    transition: 200ms;
+}
