@@ -12,7 +12,7 @@ function Favourites() {
         if (window.confirm(`Remove ${deleted.title}?`)) {
             const newItems = items.filter((el, i) => i !== parseInt(e.target.dataset.index));
             setItems(newItems);
-            // Write filtered results to local storage
+            localStorage.setItem(`ReadmeAppFavourites`, JSON.stringify(newItems));
         }
 
     }
