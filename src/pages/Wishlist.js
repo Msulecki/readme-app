@@ -21,8 +21,13 @@ function Wishlist() {
 
     const handleAddReview = (book, e) => {
         if (e.target.type !== 'submit') {
-            setCurrentBook(book);
-            setReviewModal(true);
+            const storedBooks = localStorage.getItem(storageName);
+            if (JSON.parse(storedBooks).filter(el => el.isbn === book.isbn).length === 0) {
+                setCurrentBook(book);
+                setReviewModal(true);
+            } else {
+                alert(`You have already reviewed ${book.title}!`);
+            }
         }
     }
     return (
