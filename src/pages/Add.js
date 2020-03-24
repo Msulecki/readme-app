@@ -17,6 +17,11 @@ function Add(props) {
     const [book, setBook] = useState(false);
     const [isPending, setIsPending] = useState(false);
 
+    const reviewsList = localStorage.getItem("ReadmeAppReviews");
+    const favouritesList = localStorage.getItem("ReadmeAppFavourites");
+    const wishlistList = localStorage.getItem("ReadmeAppWishlist");
+
+
     const [reviewModal, setReviewModal] = useState(false);
 
     const handleAddItem = item => {
@@ -82,7 +87,8 @@ function Add(props) {
                     author: fetchedNytimes.book_details[0].author,
                     pubDate: fetchedGoogleBooks.totalItems > 0 ? fetchedGoogleBooks.items[0].volumeInfo.publishedDate : "",
                     pagesNo: fetchedGoogleBooks.totalItems > 0 ? fetchedGoogleBooks.items[0].volumeInfo.pageCount : "",
-                    thumb: (fetchedGoogleBooks.totalItems > 0 && typeof fetchedGoogleBooks.items[0].volumeInfo.imageLinks !== 'undefined') ? fetchedGoogleBooks.items[0].volumeInfo.imageLinks.thumbnail : ""
+                    thumb: (fetchedGoogleBooks.totalItems > 0 && typeof fetchedGoogleBooks.items[0].volumeInfo.imageLinks !== 'undefined') ? fetchedGoogleBooks.items[0].volumeInfo.imageLinks.thumbnail : "",
+                    isbn: fetchedNytimes.isbns[fetchedNytimes.isbns.length - 1].isbn10
                 }
 
                 setIsPending(false);
@@ -92,7 +98,7 @@ function Add(props) {
 
         fetchData();
 
-    }, [fetchedNytimes, fetchedGoogleBooks])
+    }, [fetchedNytimes, fetchedGoogleBooks, apiGoogleBooks, apiNytimes])
 
     fetchedNytimes && fetchedGoogleBooks && console.log(fetchedNytimes);
     fetchedNytimes && fetchedGoogleBooks && console.log(fetchedGoogleBooks);
