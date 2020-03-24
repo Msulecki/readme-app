@@ -49,7 +49,7 @@ function Topbar(props) {
 
     return (
         <div className="topbar">
-            {add && <Add slidein={slideAdd} />}
+            {add && <Add slidein={slideAdd} handleAdd={handleAdd} />}
             {settingsVisible && <Settings slidein={slideSet} />}
             <button className="topbar__add">
                 <img onClick={handleAdd} src={AddIcon} alt="Add" />
