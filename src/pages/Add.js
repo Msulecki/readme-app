@@ -17,22 +17,23 @@ function Add(props) {
     const [book, setBook] = useState(false);
     const [isPending, setIsPending] = useState(false);
 
-    const reviewsList = localStorage.getItem("ReadmeAppReviews");
-    const favouritesList = localStorage.getItem("ReadmeAppFavourites");
-    const wishlistList = localStorage.getItem("ReadmeAppWishlist");
-
-
     const [reviewModal, setReviewModal] = useState(false);
 
     const handleAddItem = item => {
-        console.log('Adding', item);
-        if (item !== 'Reviews') {
-            const itemList = localStorage.getItem(`ReadmeApp${item}`) ?
-                ([...JSON.parse(localStorage.getItem(`ReadmeApp${item}`)), book])
-                : [book];
-            localStorage.setItem(`ReadmeApp${item}`, JSON.stringify(itemList));
+
+        const storedBooks = localStorage.getItem(`ReadmeApp${item}`);
+
+        if (JSON.parse(storedBooks).filter(el => el.isbn === book.isbn).length === 0) {
+            if (item !== 'Reviews') {
+                const itemList = storedBooks ?
+                    ([...storedBooks, book])
+                    : [book];
+                localStorage.setItem(`ReadmeApp${item}`, JSON.stringify(itemList));
+            } else {
+                setReviewModal(true);
+            }
         } else {
-            setReviewModal(true);
+            alert(`${book.title} is already added to ${item}!`)
         }
     }
 
