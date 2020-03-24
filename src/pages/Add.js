@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import Loader from '../components/Loader';
 import { NYTIMES_APIKEY, GOOGLEBOOKS_APIKEY } from '../API_KEYS';
 import ReviewModal from '../components/ReviewModal';
@@ -8,7 +9,10 @@ import favouritesAdd from '../assets/icons/favourites-add.png';
 import '../styles/Add.scss';
 
 function Add(props) {
-    const { slidein } = props
+
+    const history = useHistory();
+
+    const { slidein, handleAdd } = props
     const apiNytimes = NYTIMES_APIKEY;
     const apiGoogleBooks = GOOGLEBOOKS_APIKEY;
 
@@ -21,14 +25,16 @@ function Add(props) {
 
     const handleAddItem = item => {
 
-        const storedBooks = localStorage.getItem(`ReadmeApp${item}`);
+        const storedBooks = JSON.parse(localStorage.getItem(`ReadmeApp${item}`));
 
-        if (JSON.parse(storedBooks).filter(el => el.isbn === book.isbn).length === 0) {
+        if (!storedBooks || storedBooks.filter(el => el.isbn === book.isbn).length === 0) {
             if (item !== 'Reviews') {
                 const itemList = storedBooks ?
                     ([...storedBooks, book])
                     : [book];
                 localStorage.setItem(`ReadmeApp${item}`, JSON.stringify(itemList));
+                history.push(`/${item.toLowerCase()}`);
+                handleAdd();
             } else {
                 setReviewModal(true);
             }
@@ -110,7 +116,7 @@ function Add(props) {
                 {book && bookItem}
             </div>
             {isPending ? <Loader /> : undefined}
-            {reviewModal && <ReviewModal setReviewModal={setReviewModal} book={book} />}
+            {reviewModal && <ReviewModal setReviewModal={setReviewModal} book={book} handleAdd={handleAdd} />}
         </article>
     )
 }

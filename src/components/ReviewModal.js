@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import '../styles/ReviewModal.scss';
 
 function ReviewModal(props) {
-    const { setReviewModal, book } = props;
+
+    const history = useHistory();
+
+    const { setReviewModal, book, handleAdd } = props;
     const [rating, setRating] = useState(0);
 
     const handleSubmitReview = () => {
@@ -11,6 +15,8 @@ function ReviewModal(props) {
             ([...JSON.parse(localStorage.getItem(`ReadmeAppReviews`)), ratedBook])
             : [ratedBook];
         localStorage.setItem(`ReadmeAppReviews`, JSON.stringify(itemList));
+        history.push('/reviews');
+        handleAdd();
         setReviewModal(false);
     }
     const handleModalClose = e => {
