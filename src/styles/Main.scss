@@ -48,18 +48,24 @@
                 font-size: .8em;
             }
         }
-        &-delete {
+        &-delete,
+        &-review {
             height: 30px;
             width: 30px;
             margin-right: 10px;
             border-radius: 50%;
             @include flex-center-row;
             background-color: $primary-highlight;
-            background-image: url('../assets/icons/delete.svg');
             background-size: 60%;
             background-repeat: no-repeat;
             background-position: center;
             transition: $list-animation-time;
+        }
+        &-delete {   
+            background-image: url('../assets/icons/delete.svg');      
+        }
+        &-review {
+            background-image: url('../assets/icons/starEmpty.svg');
         }
         &-holder {
             margin: 6px 0;
@@ -104,13 +110,6 @@
             background-size: 75%;
             background-position: center;
             font-size: .6em;
-            // &:hover,
-            // &:focus {
-            //     background-image: url('../assets/icons/starFull.svg');
-            //     &~*{
-            //         background-image: url('../assets/icons/starFull.svg');
-            //     }
-            // }
             &.active{
                 background-image: url('../assets/icons/starFull.svg');
             }

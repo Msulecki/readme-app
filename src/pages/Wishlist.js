@@ -19,15 +19,13 @@ function Wishlist() {
 
     }
 
-    const handleAddReview = (book, e) => {
-        if (e.target.type !== 'submit') {
-            const storedBooks = localStorage.getItem(storageName);
-            if (JSON.parse(storedBooks).filter(el => el.isbn === book.isbn).length === 0) {
-                setCurrentBook(book);
-                setReviewModal(true);
-            } else {
-                alert(`You have already reviewed ${book.title}!`);
-            }
+    const handleAddReview = book => {
+        const storedBooks = localStorage.getItem('ReadmeAppReviews');
+        if (JSON.parse(storedBooks).filter(el => el.isbn === book.isbn).length === 0) {
+            setCurrentBook(book);
+            setReviewModal(true);
+        } else {
+            alert(`You have already reviewed ${book.title}!`);
         }
     }
     return (
@@ -38,8 +36,7 @@ function Wishlist() {
                     return (
                         <li
                             className="books__list-holder"
-                            key={index}
-                            onClick={handleAddReview.bind(this, item)}>
+                            key={index}>
                             <div className="books__list-item">
                                 <img
                                     className="books__list-img"
@@ -50,7 +47,10 @@ function Wishlist() {
                                     <span>{item.author}</span>
                                 </div>
                                 <button
-                                    data-index={index}
+                                    onClick={handleAddReview.bind(this, item)}
+                                    className="books__list-review">
+                                </button>
+                                <button
                                     onClick={handleDelete}
                                     className="books__list-delete">
                                 </button>
