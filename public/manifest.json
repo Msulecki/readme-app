@@ -1,6 +1,6 @@
 {
-  "short_name": "Read me",
-  "name": "Randomize, read, rate.",
+  "short_name": "ReadmeApp",
+  "name": "ReadmeApp",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#C7D1CE",
-  "background_color": "#D6AD5C"
+  "theme_color": "hsl(200,10%,80%)",
+  "background_color": "hsl(200,10%,80%)"
 }
