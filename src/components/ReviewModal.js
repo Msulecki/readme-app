@@ -4,7 +4,7 @@ import '../styles/ReviewModal.scss';
 
 function ReviewModal(props) {
 
-    const { setReviewModal, book, handleAdd } = props;
+    const { setReviewModal, book, add, handleAdd } = props;
     const history = useHistory();
     const [rating, setRating] = useState(0);
 
@@ -15,7 +15,7 @@ function ReviewModal(props) {
             : [ratedBook];
         localStorage.setItem(`ReadmeAppReviews`, JSON.stringify(itemList));
         history.push('/reviews');
-        handleAdd();
+        add && handleAdd();
         setReviewModal(false);
     }
 
