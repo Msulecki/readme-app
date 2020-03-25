@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Modal.scss';
 
 function Modal(props) {
-    const { setRegister } = props
+    const { setRegister } = props;
     return (
         <div className="modal">
             <div className="modal__info">

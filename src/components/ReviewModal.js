@@ -4,9 +4,8 @@ import '../styles/ReviewModal.scss';
 
 function ReviewModal(props) {
 
-    const history = useHistory();
-
     const { setReviewModal, book, handleAdd } = props;
+    const history = useHistory();
     const [rating, setRating] = useState(0);
 
     const handleSubmitReview = () => {
@@ -19,10 +18,12 @@ function ReviewModal(props) {
         handleAdd();
         setReviewModal(false);
     }
+
     const handleModalClose = e => {
         console.log(e.target);
         e.target.id === 'reviewModal' && setReviewModal(false);
     }
+
     return (
         <div id="reviewModal" className="review-modal" onClick={handleModalClose}>
             <div className="review-modal__title"><h2>{book.title}</h2></div>

@@ -6,7 +6,6 @@ import Login from './Login';
 function App() {
   const [isLogged, setIsLogged] = useState(true);
 
-
   return (
     <div className="app">
       {!isLogged && <Login setIsLogged={setIsLogged} />}

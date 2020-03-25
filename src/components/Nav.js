@@ -6,7 +6,6 @@ import ReviewsIcon from '../assets/icons/reviews.svg';
 import FavouritesIcon from '../assets/icons/favourites.svg';
 import WishlistIcon from '../assets/icons/wishlist.svg';
 
-
 function Nav() {
     return (
         <nav className="nav">
