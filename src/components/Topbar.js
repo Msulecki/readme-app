@@ -51,7 +51,7 @@ function Topbar(props) {
 
     return (
         <div className="topbar">
-            {add && <Add slidein={slideAdd} handleAdd={handleAdd} />}
+            {add && <Add slidein={slideAdd} add={add} handleAdd={handleAdd} />}
             {settingsVisible && <Settings slidein={slideSet} />}
             <button className="topbar__add">
                 <img className={`${slideAdd ? 'rotate' : ''}`} onClick={handleAdd} src={AddIcon} alt="Add" />

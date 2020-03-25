@@ -12,7 +12,7 @@ function Add(props) {
 
     const history = useHistory();
 
-    const { slidein, handleAdd } = props
+    const { slidein, add, handleAdd } = props
     const apiNytimes = NYTIMES_APIKEY;
     const apiGoogleBooks = GOOGLEBOOKS_APIKEY;
 
@@ -116,7 +116,7 @@ function Add(props) {
                 {book && bookItem}
             </div>
             {isPending ? <Loader /> : undefined}
-            {reviewModal && <ReviewModal setReviewModal={setReviewModal} book={book} handleAdd={handleAdd} />}
+            {reviewModal && <ReviewModal setReviewModal={setReviewModal} book={book} add={add} handleAdd={handleAdd} />}
         </article>
     )
 }
