@@ -1,68 +1,98 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ReadmeApp
+The basic idea of this app is to select a random book from [New York Times Best Sellers](https://www.nytimes.com/books/best-sellers/) list.
 
-## Available Scripts
+Searching for book is managed by combining two APIs - [NY Times Books API](https://developer.nytimes.com/docs/books-product/1/routes/lists/best-sellers/history.json/get) and [Google Books API](https://developers.google.com/books/docs/v1/using)
+* First, random book from current best sellers list is chosen
+* Then, Google Books API is called by isbn number, to get cover of the book (if exists).
+* Finally, ``book`` object is created, gathering data from both APIs and result is shown to user
 
-In the project directory, you can run:
+### Install instructions
+````
+$ git clone git://github.com/Msulecki/ReadmeApp.git
+$ npm start
+````
 
-### `npm start`
+## App usage
+**NOTE:** There can be login screen visible on first load, but it's only for visual/immersion effect, and you can provide any values, there not stored anywhere.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 1. Topbar
+![Topbar](https://github.com/Msulecki/ReadmeApp/blob/master/images/topbar.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Topbar is visible at any time using the app. There is heading showing current tab, and two buttons:
+* Add a book on the left
+* Settings on the right
 
-### `npm test`
+### 2. Add a book
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Add a book](https://github.com/Msulecki/ReadmeApp/blob/master/images/topbar_new-book.png)
 
-### `npm run build`
+When Add a book card is opened, the + button changes to X indicating you can close the tab by clicking upper left icon second time. Reopening this tab results in selecting new random book from list.
+After a short loading, a result is shown, providing book title, author, short desctiption and optional: book cover, published date and page count.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Moreover, on this page, bottom navbar is changed to action navbar:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![Bottom navbar](https://github.com/Msulecki/ReadmeApp/blob/master/images/bottombar_new-book.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When you can:
+* Add a review
+* Add book to favourites
+* Add book to wishlist
 
-### `npm run eject`
+When adding a review, a review modal is shown, allowing to give selected book a rate from 0 to 6.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Review modal](https://github.com/Msulecki/ReadmeApp/blob/master/images/review-modal.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then you can view your book lists by navigating through bottom navbar:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Navbar](https://github.com/Msulecki/ReadmeApp/blob/master/images/bottombar.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### 3. Homepage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Homepage functions as a welcome screen with short note on app.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Reviews
 
-### Code Splitting
+![Reviews](https://github.com/Msulecki/ReadmeApp/blob/master/images/reviews-item.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+You can view your hitory of reviews on this tab. Clicking on item will expand more info, so rating can be viewed.
 
-### Analyzing the Bundle Size
+![Reviews expanded](https://github.com/Msulecki/ReadmeApp/blob/master/images/reviews-item-expanded.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### 5. Favourites
 
-### Making a Progressive Web App
+![Favourites](https://github.com/Msulecki/ReadmeApp/blob/master/images/favourites-item.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+It's a simple list of positions added to favourites.
 
-### Advanced Configuration
+### 6. Wishlist
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+![Wishlist](https://github.com/Msulecki/ReadmeApp/blob/master/images/wishlist-item.png)
 
-### Deployment
+There is also a wishlist from which you can add position to reviews by clicking a star icon. There will be review modal shown for submitting your rating.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+##### **Aditional info**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+At any time, you can delete chosen position from any list by clicking a trash can icon.
+
+### 7. Settings
+
+![Settings](https://github.com/Msulecki/ReadmeApp/blob/master/images/settings.png)
+
+There is a settings tab, but (for now) it's just a mockup with no effect on app usage. However, you can reset all settings by clicking reset button. If you wish, you can play with HSL color rage inputs :smile:
+
+## Technical info
+This app works to some level as a PWA app. So you can add it to your homescreen with dedicated icon and view lists when offline. Obviously, adding new book feature won't work without internet conection, as it is loading content from 3rd party APIs.
+
+Data is stored in localStorage for now, but i'll look up to indexedDB in future.
+
+This app was created in React with hooks and routing. For styling, i've used Sass.
+
+If you want to test the code, you should provide your own api keys, in Add.js at lines:
+```javascript    
+16 const apiNytimes = NYTIMES_APIKEY;
+17 const apiGoogleBooks = GOOGLEBOOKS_APIKEY;
+```
+
+I'll try to add some new cool features (like working settings tab) in future. Thanks!
