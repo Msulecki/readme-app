@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import Add from '../pages/Add';
 import Settings from '../pages/Settings';
 import '../styles/Topbar.scss';
@@ -10,6 +11,9 @@ function Topbar(props) {
     const [settingsVisible, setSettingsVisible] = useState(false);
     const [slideSet, setSlideSet] = useState(false);
     const [slideAdd, setSlideAdd] = useState(false);
+    const history = useHistory();
+    const path = history.location.pathname.split('/')[1];
+    const location = path[0].toUpperCase().concat(path.slice(1, path.length));
 
     const handleAdd = () => {
         if (!add) {
@@ -24,7 +28,7 @@ function Topbar(props) {
             props.setAddVisible(false);
             setTimeout(() => {
                 setAdd(false);
-            }, 300)
+            }, 300);
         }
 
     }
@@ -41,21 +45,19 @@ function Topbar(props) {
             props.setSettingsVisible(false);
             setTimeout(() => {
                 setSettingsVisible(false);
-            }, 300)
+            }, 300);
         }
     }
-
-    console.log('topbar.js render');
 
     return (
         <div className="topbar">
             {add && <Add slidein={slideAdd} handleAdd={handleAdd} />}
             {settingsVisible && <Settings slidein={slideSet} />}
             <button className="topbar__add">
-                <img onClick={handleAdd} src={AddIcon} alt="Add" />
+                <img className={`${slideAdd ? 'rotate' : ''}`} onClick={handleAdd} src={AddIcon} alt="Add" />
             </button>
             <div className="topbar__logo">
-                <h1>ReadmeApp</h1>
+                <h1>{add ? "New book" : settingsVisible ? "Settings" : location}</h1>
             </div>
             <button className="topbar__settings">
                 <img onClick={handleSettings} src={SettingsIcon} alt="Settings" />
