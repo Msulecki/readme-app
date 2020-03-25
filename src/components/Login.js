@@ -5,18 +5,18 @@ import '../styles/Login.scss';
 
 function Login(props) {
 
+    const { setIsLogged } = props
     const [login, setLogin] = useState(false);
     const [register, setRegister] = useState(false);
     const [slide, setSlide] = useState(false)
     const [resetTransition, setResetTransition] = useState(false);
-    const { setIsLogged } = props
 
     const handleTransition = time => {
         return time === 0 ?
             setResetTransition(!resetTransition) // add transition time and begin transition
             : setTimeout(() => {
                 setResetTransition(!resetTransition)
-            }, time)
+            }, time);
     }
 
     const handleFormSubmit = e => {
@@ -24,8 +24,7 @@ function Login(props) {
         setSlide(true)
         setTimeout(() => {
             setIsLogged(true);
-        }, 300)
-
+        }, 300);
     }
 
     const handleLogin = () => {
