@@ -10,12 +10,13 @@ function Content() {
     const [settingsVisible, setSettingsVisible] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
-            setIsLoaded(true);
-        }, 100)
+        const handleLoad = () => {
+            setTimeout(() => {
+                setIsLoaded(true);
+            }, 100);
+        }
+        handleLoad();
     }, [isLoaded]);
-
-    console.log('content.js render');
 
     return (
         <div className={`content ${isLoaded ? 'slidein' : ''}`}>
