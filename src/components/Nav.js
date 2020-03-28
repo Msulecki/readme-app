@@ -10,10 +10,10 @@ function Nav() {
     return (
         <nav className="nav">
             <ul>
-                <li><NavLink to="home"><img src={HomeIcon} alt="Home" />Home</NavLink></li>
-                <li><NavLink to="reviews"><img src={ReviewsIcon} alt="Reviews" />Reviews</NavLink></li>
-                <li><NavLink to='favourites'><img src={FavouritesIcon} alt="Favourites" />Favourites</NavLink></li>
-                <li><NavLink to='wishlist'><img src={WishlistIcon} alt="Wishlist" />Wishlist</NavLink></li>
+                <li><NavLink to="/home"><img src={HomeIcon} alt="Home" />Home</NavLink></li>
+                <li><NavLink to="/reviews"><img src={ReviewsIcon} alt="Reviews" />Reviews</NavLink></li>
+                <li><NavLink to='/favourites'><img src={FavouritesIcon} alt="Favourites" />Favourites</NavLink></li>
+                <li><NavLink to='/wishlist'><img src={WishlistIcon} alt="Wishlist" />Wishlist</NavLink></li>
             </ul>
         </nav>
     )
