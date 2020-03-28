@@ -20,7 +20,6 @@ function ReviewModal(props) {
     }
 
     const handleModalClose = e => {
-        console.log(e.target);
         e.target.id === 'reviewModal' && setReviewModal(false);
     }
 
