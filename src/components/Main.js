@@ -10,19 +10,21 @@ function Main() {
     return (
         <section className="main">
             <Switch>
-                <Route path='/home'>
+                <Route path='*/home'>
                     <Home />
                 </Route>
-                <Route path='/favourites'>
+                <Route path='*/favourites'>
                     <Favourites />
                 </Route>
-                <Route path='/reviews'>
+                <Route path='*/reviews'>
                     <Reviews />
                 </Route>
-                <Route path='/wishlist'>
+                <Route path='*/wishlist'>
                     <Wishlist />
                 </Route>
-                <Redirect from='/' to='/home' />
+                <Route path='/'>
+                    <Home />
+                </Route>
             </Switch>
         </section>
     )
