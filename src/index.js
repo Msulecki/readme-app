@@ -7,7 +7,7 @@ import App from './components/App';
 
 
 ReactDOM.render(
-    <Router basename={process.env.PUBLIC_URL || '/'}>
+    <Router basename={'/readme-app'}>
         <App />
     </Router>, document.getElementById('root'));
 
