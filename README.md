@@ -2,6 +2,8 @@
 
 **This is a mobile app**
 
+### [Live Demo](https://msulecki.github.io/readme-app/home)
+
 The basic idea of this app is to select a random book from [New York Times Best Sellers](https://www.nytimes.com/books/best-sellers/) list.
 
 Searching for book is managed by combining two APIs - [NY Times Books API](https://developer.nytimes.com/docs/books-product/1/routes/lists/best-sellers/history.json/get) and [Google Books API](https://developers.google.com/books/docs/v1/using)
