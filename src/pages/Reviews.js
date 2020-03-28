@@ -33,7 +33,7 @@ function Reviews() {
                             className={`books__list-holder ${activeItem === index ? 'active' : ''}`}>
                             <div className="books__list-item"
                                 // onClick={handleActiveItem.bind(this, index)}
-                                onTouchEnd={handleActiveItem.bind(this, index)}>
+                                onClick={handleActiveItem.bind(this, index)}>
                                 <img
                                     className="books__list-img"
                                     src={reviewsIcon}

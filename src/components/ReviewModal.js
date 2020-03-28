@@ -28,12 +28,12 @@ function ReviewModal(props) {
             <div className="review-modal__title"><h2>{book.title}</h2></div>
             <h4>Rate this book</h4>
             <div className="review-modal__stars">
-                <div onClick={() => setRating(6)} className="review-modal__star"></div>
-                <div onClick={() => setRating(5)} className="review-modal__star"></div>
-                <div onClick={() => setRating(4)} className="review-modal__star"></div>
-                <div onClick={() => setRating(3)} className="review-modal__star"></div>
-                <div onClick={() => setRating(2)} className="review-modal__star"></div>
-                <div onClick={() => setRating(1)} className="review-modal__star"></div>
+                <div onClick={() => setRating(6)} className={`review-modal__star ${rating >= 6 ? 'full' : ''}`}></div>
+                <div onClick={() => setRating(5)} className={`review-modal__star ${rating >= 5 ? 'full' : ''}`}></div>
+                <div onClick={() => setRating(4)} className={`review-modal__star ${rating >= 4 ? 'full' : ''}`}></div>
+                <div onClick={() => setRating(3)} className={`review-modal__star ${rating >= 3 ? 'full' : ''}`}></div>
+                <div onClick={() => setRating(2)} className={`review-modal__star ${rating >= 2 ? 'full' : ''}`}></div>
+                <div onClick={() => setRating(1)} className={`review-modal__star ${rating >= 1 ? 'full' : ''}`}></div>
             </div>
             <div className="review-modal__submit">
                 <button

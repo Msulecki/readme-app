@@ -33,6 +33,10 @@
     background-position: center;
     font-size: .6em;
 
+    &.full {
+        background-image: url('../assets/icons/starFull.svg');
+    }
+
     &:hover,
     &:focus {
         background-image: url('../assets/icons/starFull.svg');
