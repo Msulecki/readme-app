@@ -22,7 +22,7 @@ function Main() {
                 <Route path='/wishlist'>
                     <Wishlist />
                 </Route>
-                <Redirect from='/' to='/home' />
+                <Redirect from='*' to='/home' />
             </Switch>
         </section>
     )
