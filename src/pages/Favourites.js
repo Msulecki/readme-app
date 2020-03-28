@@ -3,7 +3,7 @@ import favouritesIcon from '../assets/icons/favouritesListIcon.svg';
 import '../styles/Favourites.scss';
 
 function Favourites() {
-    console.log('render favourites');
+
     const storageName = 'ReadmeAppFavourites';
     const [items, setItems] = useState(JSON.parse(localStorage.getItem(storageName)))
 
