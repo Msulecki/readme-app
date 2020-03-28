@@ -13,7 +13,7 @@ function Topbar(props) {
     const [slideAdd, setSlideAdd] = useState(false);
     const history = useHistory();
     const path = history.location.pathname.split('/')[1];
-    const location = path[0].toUpperCase().concat(path.slice(1, path.length));
+    const appLocation = path ? path[0].toUpperCase().concat(path.slice(1, path.length)) : '';
 
     const handleAdd = () => {
         if (!add) {
@@ -57,7 +57,7 @@ function Topbar(props) {
                 <img className={`${slideAdd ? 'rotate' : ''}`} onClick={handleAdd} src={AddIcon} alt="Add" />
             </button>
             <div className="topbar__logo">
-                <h1>{add ? "New book" : settingsVisible ? "Settings" : location}</h1>
+                <h1>{add ? "New book" : settingsVisible ? "Settings" : appLocation}</h1>
             </div>
             <button className="topbar__settings">
                 <img onClick={handleSettings} src={SettingsIcon} alt="Settings" />
