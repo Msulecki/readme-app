@@ -7,9 +7,10 @@ import customBgColorIcon from '../assets/icons/settings/customBgColor.svg';
 import '../styles/Settings.scss';
 
 function Settings(props) {
+
     const { slidein } = props;
 
-    const storedSettings = JSON.parse(localStorage.getItem('ReadmeAppSettings'))
+    const storedSettings = JSON.parse(localStorage.getItem('ReadmeAppSettings'));
 
     const [showMessages, setShowMessages] = useState(storedSettings ? storedSettings.showMessages : false);
     const [showNewContent, setShowNewContent] = useState(storedSettings ? storedSettings.showNewContent : false);
@@ -85,12 +86,10 @@ function Settings(props) {
 
     useEffect(() => {
         localStorage.setItem('ReadmeAppSettings', JSON.stringify(settings));
-    }, [settings])
-
+    }, [settings]);
 
     return (
         <article className={`settings ${slidein ? 'slide-card' : ''}`}>
-
             <ul className="settings__list">
                 <h3>Notifications</h3>
                 <li className="settings__list-item">
@@ -204,12 +203,10 @@ function Settings(props) {
                     Agree to <span className="terms">terms and conditions.</span>
                 </div>
             </div>
-
             <div className="settings__list">
                 <button className="settings__list-reset" onClick={handleSettingsReset}>Reset all settings</button>
             </div>
-
         </article>
-    )
+    );
 }
 export default Settings;

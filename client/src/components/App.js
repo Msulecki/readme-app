@@ -4,6 +4,7 @@ import '../styles/App.scss';
 import Login from './Login';
 
 function App() {
+
   const [isLogged, setIsLogged] = useState(true);
 
   return (
@@ -13,5 +14,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

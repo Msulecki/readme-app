@@ -7,6 +7,7 @@ import AddIcon from '../assets/icons/add.svg';
 import SettingsIcon from '../assets/icons/settings.svg';
 
 function Topbar(props) {
+
     const [add, setAdd] = useState(false);
     const [settingsVisible, setSettingsVisible] = useState(false);
     const [slideSet, setSlideSet] = useState(false);
@@ -30,8 +31,8 @@ function Topbar(props) {
                 setAdd(false);
             }, 300);
         }
-
     }
+
     const handleSettings = () => {
         if (!settingsVisible) {
             setSettingsVisible(true);
@@ -63,6 +64,6 @@ function Topbar(props) {
                 <img onClick={handleSettings} src={SettingsIcon} alt="Settings" />
             </button>
         </div>
-    )
+    );
 }
 export default Topbar;

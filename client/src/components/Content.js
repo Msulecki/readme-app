@@ -5,6 +5,7 @@ import Main from './Main';
 import '../styles/Content.scss';
 
 function Content() {
+
     const [isLoaded, setIsLoaded] = useState(false);
     const [addVisible, setAddVisible] = useState(false);
     const [settingsVisible, setSettingsVisible] = useState(false);
@@ -27,6 +28,6 @@ function Content() {
                     <Nav />
                 </>}
         </div>
-    )
+    );
 }
 export default Content;

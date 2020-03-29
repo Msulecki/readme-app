@@ -25,6 +25,6 @@ function Main() {
                 <Redirect from='/' to='/home' />
             </Switch>
         </section>
-    )
+    );
 }
 export default Main;

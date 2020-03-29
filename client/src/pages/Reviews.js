@@ -60,6 +60,6 @@ function Reviews() {
                 })}
             </ul>
         </article>
-    )
+    );
 }
 export default Reviews;

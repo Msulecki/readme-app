@@ -5,7 +5,7 @@ import '../styles/Favourites.scss';
 function Favourites() {
 
     const storageName = 'ReadmeAppFavourites';
-    const [items, setItems] = useState(JSON.parse(localStorage.getItem(storageName)))
+    const [items, setItems] = useState(JSON.parse(localStorage.getItem(storageName)));
 
     const handleDelete = e => {
         const deleted = items[parseInt(e.target.dataset.index)];
@@ -14,7 +14,6 @@ function Favourites() {
             setItems(newItems);
             localStorage.setItem(`ReadmeAppFavourites`, JSON.stringify(newItems));
         }
-
     }
 
     return (
@@ -45,6 +44,6 @@ function Favourites() {
                 })}
             </ul>
         </article>
-    )
+    );
 }
 export default Favourites;

@@ -43,6 +43,6 @@ function ReviewModal(props) {
                 </button>
             </div>
         </div>
-    )
+    );
 }
 export default ReviewModal;

@@ -5,10 +5,10 @@ import '../styles/Login.scss';
 
 function Login(props) {
 
-    const { setIsLogged } = props
+    const { setIsLogged } = props;
     const [login, setLogin] = useState(false);
     const [register, setRegister] = useState(false);
-    const [slide, setSlide] = useState(false)
+    const [slide, setSlide] = useState(false);
     const [resetTransition, setResetTransition] = useState(false);
 
     const handleTransition = time => {
@@ -89,6 +89,6 @@ function Login(props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 export default Login;

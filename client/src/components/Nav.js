@@ -16,6 +16,6 @@ function Nav() {
                 <li><NavLink to='/wishlist'><img src={WishlistIcon} alt="Wishlist" />Wishlist</NavLink></li>
             </ul>
         </nav>
-    )
+    );
 }
 export default Nav;

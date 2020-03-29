@@ -16,7 +16,6 @@ function Wishlist() {
             setItems(newItems);
             localStorage.setItem(`ReadmeAppWishlist`, JSON.stringify(newItems));
         }
-
     }
 
     const handleAddReview = book => {
@@ -60,6 +59,6 @@ function Wishlist() {
                 })}
             </ul>
         </article>
-    )
+    );
 }
 export default Wishlist;

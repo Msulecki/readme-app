@@ -11,7 +11,7 @@ function Add(props) {
 
     const history = useHistory();
 
-    const { slidein, add, handleAdd } = props
+    const { slidein, add, handleAdd } = props;
     const apiNytimes = process.env.REACT_APP_NYTIMES_APIKEY;
     const apiGoogleBooks = process.env.REACT_APP_GOOGLEBOOKS_APIKEY;
 
@@ -19,7 +19,6 @@ function Add(props) {
     const [fetchedGoogleBooks, setFetchedGoogleBooks] = useState(false);
     const [book, setBook] = useState(false);
     const [isPending, setIsPending] = useState(false);
-
     const [reviewModal, setReviewModal] = useState(false);
 
     const handleAddItem = item => {
@@ -38,7 +37,7 @@ function Add(props) {
                 setReviewModal(true);
             }
         } else {
-            alert(`${book.title} is already added to ${item}!`)
+            alert(`${book.title} is already added to ${item}!`);
         }
     }
 
@@ -55,7 +54,6 @@ function Add(props) {
             {book.pubDate && <li className="book__list-item pubdate"><span>Published: </span>{book.pubDate}</li>}
             {book.pagesNo && <li className="book__list-item pagesno"><span>Pages: </span>{book.pagesNo}</li>}
         </ul>
-        {/* <div className="book__spacer"></div> */}
         <div className="book__add">
             <h3>ADD TO:</h3>
             <button onClick={() => handleAddItem('Reviews')}><img src={reviewsAdd} alt="Add review" />Reviews</button>
@@ -73,17 +71,17 @@ function Add(props) {
                 fetch(`https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=${apiNytimes}`)
                     .then(response => response.json())
                     .then(json => {
-                        const randItem = Math.floor(Math.random() * 14)
-                        setFetchedNytimes(json.results[randItem])
+                        const randItem = Math.floor(Math.random() * 14);
+                        setFetchedNytimes(json.results[randItem]);
                     })
-                    .catch(err => console.error(err))
+                    .catch(err => console.error(err));
             }
 
             if (fetchedNytimes && !fetchedGoogleBooks) {
                 fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${fetchedNytimes.isbns[fetchedNytimes.isbns.length - 1].isbn10}&key=${apiGoogleBooks}`)
                     .then(response => response.json())
                     .then(json => setFetchedGoogleBooks(json))
-                    .catch(err => console.error(err))
+                    .catch(err => console.error(err));
             }
 
             if (fetchedNytimes && fetchedGoogleBooks) {
@@ -96,7 +94,6 @@ function Add(props) {
                     thumb: (fetchedGoogleBooks.totalItems > 0 && typeof fetchedGoogleBooks.items[0].volumeInfo.imageLinks !== 'undefined') ? fetchedGoogleBooks.items[0].volumeInfo.imageLinks.thumbnail : "",
                     isbn: fetchedNytimes.isbns[fetchedNytimes.isbns.length - 1].isbn10
                 }
-
                 setIsPending(false);
                 setBook(book);
             }
@@ -104,10 +101,7 @@ function Add(props) {
 
         fetchData();
 
-    }, [fetchedNytimes, fetchedGoogleBooks, apiGoogleBooks, apiNytimes])
-
-    fetchedNytimes && fetchedGoogleBooks && console.log(fetchedNytimes);
-    fetchedNytimes && fetchedGoogleBooks && console.log(fetchedGoogleBooks);
+    }, [fetchedNytimes, fetchedGoogleBooks, apiGoogleBooks, apiNytimes]);
 
     return (
         <article className={`add ${slidein ? 'slide-card' : ''}`}>
@@ -117,6 +111,6 @@ function Add(props) {
             {isPending ? <Loader /> : undefined}
             {reviewModal && <ReviewModal setReviewModal={setReviewModal} book={book} add={add} handleAdd={handleAdd} />}
         </article>
-    )
+    );
 }
 export default Add;

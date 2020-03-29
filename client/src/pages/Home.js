@@ -16,6 +16,6 @@ function Home() {
             </ul>
             <p>There is a settings tab (upper-right icon) also, but for now, it's just a mockup.</p>
         </article>
-    )
+    );
 }
 export default Home;
