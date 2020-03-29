@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import Loader from '../components/Loader';
-import { NYTIMES_APIKEY, GOOGLEBOOKS_APIKEY } from '../API_KEYS';
 import ReviewModal from '../components/ReviewModal';
 import wishlistAdd from '../assets/icons/wishlist-add.png';
 import reviewsAdd from '../assets/icons/reviews-add.png';
@@ -13,8 +12,8 @@ function Add(props) {
     const history = useHistory();
 
     const { slidein, add, handleAdd } = props
-    const apiNytimes = NYTIMES_APIKEY;
-    const apiGoogleBooks = GOOGLEBOOKS_APIKEY;
+    const apiNytimes = process.env.NYTIMES_APIKEY;
+    const apiGoogleBooks = process.env.GOOGLEBOOKS_APIKEY;
 
     const [fetchedNytimes, setFetchedNytimes] = useState(false);
     const [fetchedGoogleBooks, setFetchedGoogleBooks] = useState(false);

@@ -7,7 +7,7 @@ import App from './components/App';
 
 
 ReactDOM.render(
-    <Router basename={'/readme-app'}>
+    <Router>
         <App />
     </Router>, document.getElementById('root'));
 
