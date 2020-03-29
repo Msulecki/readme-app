@@ -2,7 +2,7 @@
 
 **This is a mobile app**
 
-### [Live Demo](https://msulecki.github.io/readme-app/home)
+### [Live Demo](https://readmea.herokuapp.com/)
 
 The basic idea of this app is to select a random book from [New York Times Best Sellers](https://www.nytimes.com/books/best-sellers/) list.
 
