@@ -12,8 +12,8 @@ function Add(props) {
     const history = useHistory();
 
     const { slidein, add, handleAdd } = props
-    const apiNytimes = process.env.NYTIMES_APIKEY;
-    const apiGoogleBooks = process.env.GOOGLEBOOKS_APIKEY;
+    const apiNytimes = process.env.REACT_APP_NYTIMES_APIKEY;
+    const apiGoogleBooks = process.env.REACT_APP_GOOGLEBOOKS_APIKEY;
 
     const [fetchedNytimes, setFetchedNytimes] = useState(false);
     const [fetchedGoogleBooks, setFetchedGoogleBooks] = useState(false);
